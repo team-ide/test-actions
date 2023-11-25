@@ -1,0 +1,23 @@
+name: test-linux
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: docker.io/teamide/build:0.6
+    steps:
+      # 下载源码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 打包构建 Server
+      - name: Build Server
+        uses: actions/setup-go@v2
+        with:
+          go-version: "^1.19"
+
+      - run: |
+          go run .
+
