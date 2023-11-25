@@ -10,10 +10,10 @@ import (
 
 func (this_ *Terminal) Start() (err error) {
 	obj := ptyMasterNew()
-	command := "bash"
-	_, err = os.Stat("/bin/bash")
+	command := "zsh"
+	_, err = os.Stat("/bin/zsh")
 	if os.IsNotExist(err) {
-		command = "sh"
+		command = "bash"
 	}
 	err = obj.Start(command, nil, nil, 0, 0)
 	if err != nil {
