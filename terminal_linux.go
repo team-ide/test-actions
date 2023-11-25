@@ -15,7 +15,7 @@ func (this_ *Terminal) Start() (err error) {
 	if os.IsNotExist(err) {
 		command = "sh"
 	}
-	err = obj.Start(command, nil, nil, size.Cols, size.Rows)
+	err = obj.Start(command, nil, nil, 0, 0)
 	if err != nil {
 		return
 	}
