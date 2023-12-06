@@ -63,8 +63,7 @@ jobs:
           #这里用到了github的secrets功能，避免账户和密码随仓库泄露
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - if: ${{ steps.release_upload_url.outputs.value != '' }}
-        name: Build and push
+      - name: Build and push
         #导入这个模块来完成自动编译和推送
         uses: docker/build-push-action@v3
         with:
